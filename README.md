@@ -1,24 +1,25 @@
 # 🤖 Bot Discord - WebTech INSTITUTE
 
-Ce bot est conçu pour gérer de manière fluide et automatique plusieurs aspects du serveur Discord dédié aux futurs élèves de **WebTech INSTITUTE**. Il facilite l'envoi de messages de bienvenue et la publication d'annonces importantes
+Ce bot a été conçu par **moi**, **Minilan**, futur étudiant de **WebTech INSTITUTE**, dans le cadre d’une initiative personnelle pour améliorer la gestion du serveur Discord de l’école. Actuellement, l’infrastructure Discord de l’école n’est pas optimisée ni particulièrement attrayante, et mon bot a pour objectif de changer cela
 
-## 🚀 Fonctionnalités
+## 🌟 **À propos**
 
-### 👋 **Messages de bienvenue**
-Lorsqu'un nouvel utilisateur rejoint le serveur, le bot lui envoie un message de bienvenue personnalisé
+Ce bot est spécialement conçu pour le serveur Discord **WebTech INSTITUTE**, que j’ai créé de A à Z dans le but de proposer une alternative moderne, dynamique et professionnelle à l’école. Mon projet vise à améliorer l’expérience des futurs élèves et des membres intéressés par l’établissement grâce à une gestion automatisée du serveur
 
-### 📢 **Annonces**
-Les administrateurs du serveur peuvent utiliser le bot pour publier des annonces importantes dans un salon dédié
+## 🚀 **Fonctionnalités prévues**
 
-### 📝 **Gestion des pseudos**
-Le bot peut mettre à jour automatiquement les pseudos des utilisateurs en fonction de leur rôle
+- **👋 Messages de bienvenue** : Envoi d’un message personnalisé aux nouveaux arrivants
+- **📢 Annonces importantes** : Un outil pour diffuser rapidement les informations clés dans un salon dédié
+- **📝 Gestion des pseudos** : Uniformisation des pseudos des étudiants par année pour maintenir une cohérence et un professionnalisme sur le serveur
+- **🧩 Et plus encore...**
 
-## 💻 **Pourquoi ce bot pour WebTech INSTITUTE ?**
-Ce bot est spécialement conçu pour améliorer l'expérience des futurs élèves et des membres du personnel de **WebTech INSTITUTE** en automatisant des tâches essentielles. Il permet d’assurer une gestion organisée et fluide du serveur Discord, tout en garantissant que chaque membre du serveur dispose des bonnes informations et rôles
+## 🎯 **Pourquoi ce projet ?**
 
-### 🔒 **Confidentialité et sécurité**
-Le bot respecte les normes de confidentialité et ne collecte que les informations nécessaires pour remplir ses fonctions, garantissant la sécurité des données des utilisateurs
+J’ai remarqué que l’actuel Discord de WebTech INSTITUTE n’était pas suffisamment attractif ni représentatif du dynamisme et de l’excellence que l’école souhaite transmettre. En créant ce bot et ce serveur, j’espère proposer une solution clé en main pour l’école, qui reflète mieux ses valeurs et son ambition
 
 ---
 
-### 👨‍💻 **Développé par les élèves de WebTech INSTITUTE**
+**Ce bot incarne ma vision en tant que futur étudiant de WebTech INSTITUTE, qui souhaite contribuer activement à son environnement scolaire**  
+🎓 *"Parce qu’un Discord accueillant et bien géré est la première impression que l’on donne aux futurs élèves"*
+
+### 👨‍💻 **Développé par Minilan - Futur étudiant WebTech INSTITUTE**
