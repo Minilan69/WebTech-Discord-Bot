@@ -1,5 +1,7 @@
 // Import
-const { Client, Events, GatewayIntentBits, time, TimestampStyles } = require("discord.js");
+const fs = require("node:fs");
+const path = require("node:path");
+const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
 
 // New instance
@@ -9,6 +11,9 @@ client.once(Events.ClientReady, (readyClient) => {
     `Connected as ${readyClient.user.username} at ${Date()}`
   );
 });
+
+// Command creation
+client.commands = new Collection();
 
 // Launch Bot
 client.login(token);
