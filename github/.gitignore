@@ -1,0 +1,25 @@
+# Node
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Dependency
+/lib/
+/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Discord
+/config.json
