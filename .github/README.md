@@ -15,7 +15,11 @@ Ce bot est spécialement conçu pour le serveur Discord **WebTech INSTITUTE**, q
 
 ## 🎯 **Pourquoi ce projet ?**  
 
-Je souhaite proposer une solution moderne qui met en avant les valeurs et l’esprit de WebTech INSTITUTE. Avec ce bot et le serveur Discord associé, mon objectif est de renforcer l’identité numérique de l’école tout en facilitant la communication et la gestion pour tous les utilisateurs.  
+Je souhaite proposer une solution moderne qui met en avant les valeurs et l’esprit de WebTech INSTITUTE. Avec ce bot et le serveur Discord associé, mon objectif est de renforcer l’identité numérique de l’école tout en facilitant la communication et la gestion pour tous les utilisateurs.
+
+## 📚 **Wiki**
+
+Pour plus d'informations sur les fonctionnalités, les commandes et la contribution, ainsi que pour toute la documentation détaillée, consultez le [Wiki du projet](https://github.com/Minilan69/WebTech-Discord-Bot/wiki/%F0%9F%8F%A0-%7C-Acceuil)
 
 ---
 
