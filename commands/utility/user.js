@@ -8,7 +8,7 @@ module.exports = {
     // interaction.user is the object representing the User who ran the command
     // interaction.member is the GuildMember object, which represents the user in the specific guild
     await interaction.reply(
-      `Cette commande à été exécuté par ${interaction.user.username}, qui a rejoin le ${interaction.member.joinedAt}`
+      `${interaction.user.globalName} tu as rejoint le ${interaction.member.joinedAt}`
     );
   },
 };
