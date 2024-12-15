@@ -48,7 +48,7 @@ async function deployCommands() {
 
     console.log(`Create ${data.length} commands`);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("[ERROR]", error);
   }
 }
 

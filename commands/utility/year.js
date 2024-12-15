@@ -48,7 +48,7 @@ module.exports = {
         await member.setNickname(`${name}`);
         await interaction.reply(`<@${user.id}> a été enlevé`);
       } catch (error) {
-        console.error(error);
+        console.error("[ERROR]", error);
         await interaction.reply(
           "Impossible de changer le pseudo ou de retirer le rôle"
         );
@@ -75,7 +75,7 @@ module.exports = {
         await member.setNickname(`${name} • N${annee}`);
         await interaction.reply(`<@${user.id}> a été ajouté`);
       } catch (error) {
-        console.error(error);
+        console.error("[ERROR]", error);
         await interaction.reply(
           "Impossible de changer le pseudo ou d'ajouter le rôle"
         );

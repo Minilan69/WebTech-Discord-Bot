@@ -11,7 +11,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 try {
   deployCommands();
 } catch (error) {
-  console.error("Erreur lors du rechargement des commandes", error);
+  console.error("[ERROR]", error);
 }
 
 client.commands = new Collection();
