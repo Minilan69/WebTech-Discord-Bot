@@ -14,7 +14,7 @@ module.exports = {
 
     try {
       await command.execute(interaction);
-      console.log(`${interaction.commandName}.js succeed`);
+      console.log(`${interaction.commandName}.js Succeed`);
     } catch (error) {
       console.error(error);
       if (interaction.replied || interaction.deferred) {
