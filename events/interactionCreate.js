@@ -1,4 +1,5 @@
 const { Events, MessageFlags } = require("discord.js");
+const { adminRoleId } = require("../config.json");
 
 module.exports = {
   name: Events.InteractionCreate,

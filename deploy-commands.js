@@ -19,12 +19,14 @@ async function getCommands() {
       const filePath = path.join(commandsPath, file);
       const command = require(filePath);
 
+      if (folder === "admins") {
+        command.data.default_member_permissions = "8";
+      }
+
       if ("data" in command && "execute" in command) {
         commands.push(command.data.toJSON());
       } else {
-        console.log(
-          `[WARNING] ${filePath} missing property`
-        );
+        console.log(`[WARNING] ${filePath} missing property`);
       }
     }
   }
