@@ -3,10 +3,17 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
+const { deployCommands } = require("./deploy-commands");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 // Commands
+try {
+  deployCommands();
+} catch (error) {
+  console.error("Erreur lors du rechargement des commandes", error);
+}
+
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, "commands");
 const commandFolders = fs.readdirSync(foldersPath);
