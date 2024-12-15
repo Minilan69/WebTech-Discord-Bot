@@ -5,7 +5,9 @@ const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
 const { deployCommands } = require("./deploy-commands");
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+});
 
 // Commands
 try {
@@ -43,8 +45,7 @@ const eventFiles = fs
   .filter((file) => file.endsWith(".js"));
 
 for (const file of eventFiles) {
-  const filePath = path.join(eventsPath, file);
-  const event = require(filePath);
+  const event = require(path.join(eventsPath, file));
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args));
   } else {
