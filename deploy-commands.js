@@ -23,7 +23,7 @@ async function getCommands() {
         commands.push(command.data.toJSON());
       } else {
         console.log(
-          `[WARNING] ${filePath} is missing a "data" or "execute" property`
+          `[WARNING] ${filePath} missing property`
         );
       }
     }
