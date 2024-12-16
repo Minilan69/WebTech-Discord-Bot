@@ -13,8 +13,9 @@ module.exports = {
         .setRequired(true)
     ),
   
-  // Collect Argumuments
+  // Execute 
   async execute(interaction) {
+    await interaction.deferReply();
     const user = interaction.options.getUser("étudiant");
 
     const member = await interaction.guild.members.fetch(user.id);
@@ -37,10 +38,10 @@ module.exports = {
       await member.roles.remove("1315319863685939220");
 
       await member.setNickname(`${name}`);
-      await interaction.reply(`✅ <@${user.id}> a été retiré`);
+      await interaction.editReply(`✅ <@${user.id}> a été retiré`);
     } catch (error) {
       console.error("[❌ERROR]", error);
-      await interaction.reply(
+      await interaction.editReply(
         "❌ Impossible de changer le pseudo ou de retirer le rôle"
       );
     }

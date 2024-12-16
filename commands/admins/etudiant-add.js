@@ -21,8 +21,9 @@ module.exports = {
         .setMaxValue(5)
     ),
 
-  // Collect Argumuments
+  // Execution
   async execute(interaction) {
+    await interaction.deferReply();
     const user = interaction.options.getUser("étudiant");
     const annee = interaction.options.getNumber("année");
 
@@ -46,10 +47,10 @@ module.exports = {
       await member.roles.add("1315319863685939220");
 
       await member.setNickname(`${name} • N${annee}`);
-      await interaction.reply(`✅ <@${user.id}> a été ajouté`);
+      await interaction.editReply(`✅ <@${user.id}> a été ajouté`);
     } catch (error) {
       console.error("[❌ERROR]", error);
-      await interaction.reply(
+      await interaction.editReply(
         "❌ Impossible de changer le pseudo ou d'ajouter le rôle"
       );
     }

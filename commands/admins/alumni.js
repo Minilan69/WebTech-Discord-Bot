@@ -12,8 +12,9 @@ module.exports = {
         .setDescription("L'élève à ajouter")
         .setRequired(true)
     ),
-  // Collect Argumuments
+  // Execution
   async execute(interaction) {
+    await interaction.deferReply();
     const user = interaction.options.getUser("alumni");
 
     const member = await interaction.guild.members.fetch(user.id);
@@ -37,10 +38,10 @@ module.exports = {
       await member.roles.remove("1315319863685939220");
 
       await member.setNickname(`${name}`);
-      await interaction.reply(`✅ <@${user.id}> a été ajouter`);
+      await interaction.editReply(`✅ <@${user.id}> a été ajouter`);
     } catch (error) {
       console.error("[❌ERROR]", error);
-      await interaction.reply(
+      await interaction.editReply(
         "❌ Impossible de changer le pseudo ou d'ajouter/retirer le rôle"
       );
     }
