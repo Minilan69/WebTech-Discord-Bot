@@ -19,14 +19,16 @@ async function getCommands() {
       const filePath = path.join(commandsPath, file);
       const command = require(filePath);
 
+      // Admin's Commands
       if (folder === "admins") {
         command.data.default_member_permissions = "8";
       }
 
+      // Have All Property
       if ("data" in command && "execute" in command) {
         commands.push(command.data.toJSON());
       } else {
-        console.log(`[WARNING] ${filePath} missing property`);
+        console.log(`[❗WARNING] ${filePath} missing property`);
       }
     }
   }
@@ -48,9 +50,9 @@ async function deployCommands() {
       }
     );
 
-    console.log(`Create ${data.length} commands`);
+    console.log(`[✅PASS] ${data.length} commands created`);
   } catch (error) {
-    console.error("[ERROR]", error);
+    console.error("[❌ERROR]", error);
   }
 }
 

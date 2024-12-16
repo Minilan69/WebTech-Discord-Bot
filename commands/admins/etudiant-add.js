@@ -46,11 +46,11 @@ module.exports = {
       await member.roles.add("1315319863685939220");
 
       await member.setNickname(`${name} • N${annee}`);
-      await interaction.reply(`<@${user.id}> a été ajouté`);
+      await interaction.reply(`[✅] <@${user.id}> a été ajouté`);
     } catch (error) {
-      console.error("[ERROR]", error);
+      console.error("[❌ERROR]", error);
       await interaction.reply(
-        "Impossible de changer le pseudo ou d'ajouter le rôle"
+        "[❌] Impossible de changer le pseudo ou d'ajouter le rôle"
       );
     }
   },

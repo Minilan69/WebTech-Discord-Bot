@@ -5,6 +5,7 @@ const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
 const { deployCommands } = require("./deploy-commands");
 
+// Client
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
@@ -13,13 +14,13 @@ const client = new Client({
 try {
   deployCommands();
 } catch (error) {
-  console.error("[ERROR]", error);
+  console.error("[❌ERROR]", error);
 }
 
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, "commands");
 const commandFolders = fs.readdirSync(foldersPath);
-
+//Search File
 for (const folder of commandFolders) {
   const commandsPath = path.join(foldersPath, folder);
   const commandFiles = fs
@@ -32,7 +33,7 @@ for (const folder of commandFolders) {
       client.commands.set(command.data.name, command);
     } else {
       console.log(
-        `[WARNING] ${filePath} is missing a "data" or "execute" property`
+        `[❗WARNING] ${filePath} missing property`
       );
     }
   }

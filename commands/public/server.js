@@ -1,5 +1,7 @@
+// Imports
 const { SlashCommandBuilder } = require("discord.js");
 
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("server")

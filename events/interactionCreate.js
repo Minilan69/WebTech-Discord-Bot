@@ -1,31 +1,36 @@
+// Imports
 const { Events, MessageFlags } = require("discord.js");
 const { adminRoleId } = require("../config.json");
 
+// Event Responde
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
     if (!interaction.isChatInputCommand()) return;
 
     const command = interaction.client.commands.get(interaction.commandName);
-
+    // Command Don't Exist
     if (!command) {
-      console.error(`No command matching ${interaction.commandName} was found`);
+      console.error(
+        `[❌ERROR] ${interaction.commandName} no command with this name`
+      );
       return;
     }
 
     try {
       await command.execute(interaction);
-      console.log(`${interaction.commandName}.js Succeed`);
+      console.log(`[✅PASS] ${interaction.commandName}.js sucseed`);
     } catch (error) {
+      // ERROR Section
       console.error(error);
       if (interaction.replied || interaction.deferred) {
         await interaction.followUp({
-          content: "Il y a eu une erreur pendant l'exécution de la commande !",
+          content: "[❌] Ta commande n'a pas pu aboutir, désolé !",
           flags: MessageFlags.Ephemeral,
         });
       } else {
         await interaction.reply({
-          content: "Il y a eu une erreur pendant l'exécution de la commande !",
+          content: "[❌] Ta commande n'a pas pu aboutir, désolé !",
           flags: MessageFlags.Ephemeral,
         });
       }
