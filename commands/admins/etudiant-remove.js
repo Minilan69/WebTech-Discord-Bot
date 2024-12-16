@@ -37,11 +37,11 @@ module.exports = {
       await member.roles.remove("1315319863685939220");
 
       await member.setNickname(`${name}`);
-      await interaction.reply(`[✅] <@${user.id}> a été retiré`);
+      await interaction.reply(`✅ <@${user.id}> a été retiré`);
     } catch (error) {
       console.error("[❌ERROR]", error);
       await interaction.reply(
-        "[❌] Impossible de changer le pseudo ou de retirer le rôle"
+        "❌ Impossible de changer le pseudo ou de retirer le rôle"
       );
     }
   },
