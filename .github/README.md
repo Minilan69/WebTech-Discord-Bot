@@ -1,29 +1,31 @@
 # 🤖 Bot Discord - WebTech INSTITUTE  
 
-Ce bot a été conçu par **moi**, **Minilan**, futur étudiant de **WebTech INSTITUTE**, dans le cadre d’une initiative personnelle pour enrichir et moderniser la gestion du serveur Discord de l’école. Ce projet a pour objectif de refléter le dynamisme et l’innovation qui caractérisent WebTech INSTITUTE.  
+Ce bot Discord a été conçu pour enrichir et moderniser la gestion du serveur Discord de **WebTech INSTITUTE**. Développé par **Minilan**, futur étudiant de l’école, ce projet reflète l’innovation et le dynamisme de WebTech INSTITUTE, tout en offrant une plateforme accueillante et fonctionnelle.
 
 ## 🌟 **À propos**  
 
-Ce bot est spécialement conçu pour le serveur Discord **WebTech INSTITUTE**, que j’ai élaboré de A à Z afin de proposer une plateforme accueillante, fonctionnelle et professionnelle. Mon projet vise à offrir une expérience optimisée pour les futurs élèves, les membres intéressés par l’établissement, et la communauté en général, grâce à des fonctionnalités automatisées et personnalisées.  
+Le bot est spécifiquement développé pour répondre aux besoins du serveur Discord de **WebTech INSTITUTE**. Il a pour objectif d’améliorer l’expérience des futurs élèves, des membres intéressés par l’établissement, et de la communauté en général, grâce à des fonctionnalités automatisées et personnalisées.  
 
 ## 🚀 **Fonctionnalités prévues**  
 
-- **👋 Messages de bienvenue** : Envoi d’un message personnalisé pour orienter les nouveaux arrivants
-- **📢 Annonces importantes** : Diffusion rapide et claire des informations clés dans un salon dédié
-- **📝 Gestion des pseudos** : Uniformisation des pseudos par année pour une meilleure organisation et un environnement professionnel
+- **👋 Messages de bienvenue** : Envoi d’un message personnalisé pour orienter les nouveaux arrivants  
+- **📢 Annonces importantes** : Diffusion rapide et claire des informations clés dans un salon dédié  
+- **📝 Gestion des pseudos** : Uniformisation des pseudos par année pour une meilleure organisation et un environnement professionnel  
 - **🧩 Et plus encore...**  
 
-## 🎯 **Pourquoi ce projet ?**  
+## 🎯 **Objectifs du projet**  
 
-Je souhaite proposer une solution moderne qui met en avant les valeurs et l’esprit de WebTech INSTITUTE. Avec ce bot et le serveur Discord associé, mon objectif est de renforcer l’identité numérique de l’école tout en facilitant la communication et la gestion pour tous les utilisateurs.
+Ce projet est une initiative personnelle, créée avec l’intention de proposer une solution moderne et clé en main pour le serveur Discord de l’école. En reflétant l’identité numérique et les valeurs de WebTech INSTITUTE, le bot contribue à renforcer la communication et la gestion tout en offrant une expérience engageante pour tous les utilisateurs.
 
-## 📚 **Wiki**
+## 📚 **Wiki**  
 
-Pour plus d'informations sur les fonctionnalités, les commandes et la contribution, ainsi que pour toute la documentation détaillée, consultez le [Wiki du projet](https://github.com/Minilan69/WebTech-Discord-Bot/wiki/%F0%9F%8F%A0-%7C-Acceuil)
+Pour plus d'informations sur les fonctionnalités, les commandes, la contribution et une documentation complète, consultez le [Wiki du projet](https://github.com/Minilan69/WebTech-Discord-Bot/wiki/%F0%9F%8F%A0-%7C-Acceuil)
 
 ---
 
-**Ce bot reflète ma vision en tant que futur étudiant motivé de WebTech INSTITUTE : contribuer activement à la communauté et offrir un outil pratique qui valorise l’école**  
-🎓 *"Parce qu’un Discord bien structuré, c’est une porte d’entrée vers une communauté engagée et professionnelle."*  
+Ce bot représente la vision d’un futur étudiant motivé, cherchant à contribuer activement à l’environnement numérique de WebTech INSTITUTE tout en répondant aux besoins actuels du serveur Discord.  
+🎓 *"Un serveur bien structuré est une première impression réussie"*  
 
-### 👨‍💻 **Développé par Minilan - Futur étudiant WebTech INSTITUTE**  
+---
+
+### 👨‍💻 **Développé par Minilan - Futur étudiant de WebTech INSTITUTE**  
