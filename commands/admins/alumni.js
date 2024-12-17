@@ -21,23 +21,12 @@ module.exports = {
 
     // Remove User
     try {
-      let name =
-        member.nickname ||
-        user.globalName ||
-        user.username ||
-        "Pseudo Non Récupérable";
-
-      // Verified If Already Have • N* In Nickname
-      const anneePattern = / • N\d+$/;
-      if (anneePattern.test(name)) {
-        name = name.replace(anneePattern, "");
-      }
 
       // Modifications
       await member.roles.add("1317826544055615498");
       await member.roles.remove("1315319863685939220");
 
-      await member.setNickname(`${name}`);
+      await member.setNickname("");
       await interaction.editReply(`✅ <@${user.id}> a été ajouter`);
     } catch (error) {
       console.error("[❌ERROR]", error);
