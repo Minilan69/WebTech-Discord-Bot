@@ -1,6 +1,5 @@
 // Imports
 const { Events, MessageFlags } = require("discord.js");
-const { adminRoleId } = require("../config.json");
 
 // Event Responde
 module.exports = {
