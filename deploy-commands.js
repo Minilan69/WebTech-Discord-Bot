@@ -40,7 +40,8 @@ async function getCommands() {
 async function deployCommands() {
   const commands = await getCommands();
 
-  const rest = new REST().setToken(token);
+  const { REST } = require("@discordjs/rest");
+  const rest = new REST({ timeout: 60000 }).setToken(token);
 
   try {
     const data = await rest.put(
