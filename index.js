@@ -56,3 +56,4 @@ for (const file of eventFiles) {
 
 // Bot
 client.login(token);
+// sudo systemctl reload discord-bot-webtech.service
