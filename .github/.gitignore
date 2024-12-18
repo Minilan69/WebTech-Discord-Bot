@@ -5,6 +5,7 @@ yarn-error.log
 
 # Environment
 .env
+ecosystem.config.js
 
 # IDE
 .vscode/
