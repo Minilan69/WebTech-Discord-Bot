@@ -8,15 +8,15 @@ module.exports = {
     .setDescription("Permet de retirer un étudiant webtech")
     .addUserOption((option) =>
       option
-        .setName("étudiant")
+        .setName("student")
         .setDescription("L'élève à retirer")
         .setRequired(true)
     ),
-  
-  // Execute 
+
+  // Execute
   async execute(interaction) {
     await interaction.deferReply();
-    const user = interaction.options.getUser("étudiant");
+    const user = interaction.options.getUser("student");
 
     const member = await interaction.guild.members.fetch(user.id);
 

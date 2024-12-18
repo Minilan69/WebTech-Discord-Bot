@@ -8,13 +8,13 @@ module.exports = {
     .setDescription("Permet d'ajouter un étudiant webtech")
     .addUserOption((option) =>
       option
-        .setName("étudiant")
+        .setName("student")
         .setDescription("L'élève à ajouter")
         .setRequired(true)
     )
     .addNumberOption((option) =>
       option
-        .setName("année")
+        .setName("year")
         .setDescription("Son année")
         .setRequired(true)
         .setMinValue(1)
@@ -24,8 +24,8 @@ module.exports = {
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
-    const user = interaction.options.getUser("étudiant");
-    const annee = interaction.options.getNumber("année");
+    const user = interaction.options.getUser("student");
+    const annee = interaction.options.getNumber("year");
 
     const member = await interaction.guild.members.fetch(user.id);
 
