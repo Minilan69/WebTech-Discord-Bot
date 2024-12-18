@@ -1,4 +1,4 @@
-name: Discord Bot Deploy
+name: Deploy On Server
 
 on:
   push:
@@ -7,24 +7,20 @@ on:
 
 jobs:
   deploy:
-    name: Deploy On Server
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone
+      - name: Verify
         uses: actions/checkout@v2
 
-      - name: Configure
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: SSH
+        uses: appleboy/ssh-action@v0.1.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy
-        run: |
-          ssh -t -t -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
             cd /home/minilan/github/WebTech-Discord-Bot
             git pull origin main
-            npm install --production
             pm2 restart ecosystem.config.js
-            exit
-          EOF
