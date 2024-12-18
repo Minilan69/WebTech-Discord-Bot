@@ -12,7 +12,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            /home/minilan/github/WebTech-Discord-Bot
+            cd /home/minilan/github/WebTech-Discord-Bot
             git pull origin main
             npm install --production
             pm2 restart bot
