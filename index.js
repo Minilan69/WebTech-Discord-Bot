@@ -56,4 +56,4 @@ for (const file of eventFiles) {
 
 // Bot
 client.login(token);
-// 1
+// 2
