@@ -21,6 +21,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/minilan/github/WebTech-Discord-Bot
-            git pull origin main
-            pm2 restart ecosystem.config.js
+            ls
