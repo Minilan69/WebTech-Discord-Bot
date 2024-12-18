@@ -9,6 +9,7 @@ module.exports = {
       message.member.permissions.has(PermissionsBitField.Flags.Administrator) // Vérifie si l'auteur est admin
     ) {
       try {
+        console.log("pass")
         // Supprime la mention du bot du message
         const contentWithoutMention = message.content
           .replace(`<@${message.client.user.id}>`, "")
