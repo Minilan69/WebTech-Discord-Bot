@@ -1,11 +1,11 @@
-name: remote ssh command
+name: Update And Reboot Bot On Server
 on: [push]
 jobs:
   build:
-    name: Build
+    name: SSH Connection
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using password
+      - name: Command Execution
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
