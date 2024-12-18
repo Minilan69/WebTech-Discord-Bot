@@ -13,7 +13,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd /home/minilan/github/WebTech-Discord-Bot
-            ls
             git pull origin main
-            ls
             pm2 restart bot
