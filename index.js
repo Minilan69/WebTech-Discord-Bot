@@ -56,4 +56,3 @@ for (const file of eventFiles) {
 
 // Bot
 client.login(token);
-// Test SSH Connection
