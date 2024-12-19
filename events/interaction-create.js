@@ -35,12 +35,12 @@ module.exports = {
       console.error(error);
       if (interaction.replied || interaction.deferred) {
         await interaction.followUp({
-          content: "[❌] Ta commande n'a pas pu aboutir, désolé !",
+          content: "❌ Ta commande n'a pas pu aboutir, désolé !",
           flags: MessageFlags.Ephemeral,
         });
       } else {
         await interaction.reply({
-          content: "[❌] Ta commande n'a pas pu aboutir, désolé !",
+          content: "❌ Ta commande n'a pas pu aboutir, désolé !",
           flags: MessageFlags.Ephemeral,
         });
       }

@@ -27,7 +27,7 @@ module.exports = {
 
     // Verify is not an admin
     const memberToBan = await interaction.guild.members.fetch(user.id);
-    if (memberToBan.permissions.has("ADMINISTRATOR")) {
+    if (memberToBan.permissions.has(8)) {
       return interaction.reply({
         content: "❌ Vous ne pouvez pas bannir un administrateur",
         ephemeral: true,

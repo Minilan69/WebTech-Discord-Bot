@@ -27,7 +27,7 @@ module.exports = {
 
     // Verify is not an admin
     const memberToKick = await interaction.guild.members.fetch(user.id);
-    if (memberToKick.permissions.has("ADMINISTRATOR")) {
+    if (memberToKick.permissions.has(8)) {
       return interaction.reply({
         content: "❌ Vous ne pouvez pas kick un administrateur",
         ephemeral: true,
