@@ -19,18 +19,8 @@ module.exports = {
           return message.reply("❌ Vous ne pouvez pas envoyer un embed vide !");
         }
 
-        // Crée un embed avec le message original
-        const embed = new EmbedBuilder()
-          .setColor("#8b0000") // Couleur de l'embed
-          .setAuthor({
-            name: message.author.tag,
-            iconURL: message.author.displayAvatarURL(),
-          })
-          .setDescription(contentWithoutMention) // Le contenu du message sans la mention
-          .setTimestamp(); // Ajoute un timestamp
-
         // Envoie l'embed
-        await message.channel.send({ embeds: [embed] });
+        await message.channel.send(contentWithoutMention);
 
         // Supprime le message original (optionnel)
         await message.delete();
