@@ -30,6 +30,16 @@ module.exports = {
           return message.reply("❌ Un message ne peut pas être vide");
         }
 
+        // Message Length
+        if (
+          contentWithoutMention.length > 2000 ||
+          attachmentUrls.length > 10
+        ) {
+          return message.reply(
+            `❌ Le message ne peut pas dépasser 2000(${contentWithoutMention.length}) caractères et les pièces jointes ne peuvent pas dépasser 10(${attachmentUrls.length})`
+          );
+        }
+
         // Message
         await message.channel.send({
           content: contentWithoutMention,
