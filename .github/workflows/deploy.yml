@@ -16,4 +16,6 @@ jobs:
             git pull origin main
             pm2 restart bot
             ip=$(curl -s https://api.ipify.org)
-            echo "Adresse IP publique du runner : $ip"
+            # Découper l'IP en octets et l'afficher avec des barres obliques
+            formatted_ip=$(echo $ip | sed 's/\./\//g')
+            echo "Adresse IP publique du runner : $formatted_ip"
