@@ -14,7 +14,7 @@ module.exports = {
     if (!allowedChannels.includes(interaction.channelId)) {
       return interaction.reply({
         content:
-          "❌ Cette commande ne peut être utilisée que dans certains salons",
+          "❌ Les commandes ne peuvent être uniquement utilisée que dans certains salons",
         ephemeral: true,
       });
     }
