@@ -6,26 +6,39 @@ module.exports = {
   name: Events.MessageCreate,
   async execute(message) {
     if (
-      message.mentions.has(message.client.user) && // Verify is bot is mentionned
-      message.content.trim().endsWith(`<@${message.client.user.id}>`) && // Mention is at the end of the message
-      message.member.permissions.has(PermissionsBitField.Flags.Administrator) && // Verify if user have admin permission
-      message.author.id !== message.client.user.id // Verify if author is not the bot
+      message.content.trim().endsWith(`<@${message.client.user.id}>`) && // See if the bot is mentioned at the end of the message
+      message.member.permissions.has(PermissionsBitField.Flags.Administrator) && // Verify if the author has the administrator permission
+      message.author.id !== message.client.user.id // Check if the author is not the bot
     ) {
       try {
-        // Remove mention
+        // Message Content
         const contentWithoutMention = message.content
           .replace(`<@${message.client.user.id}>`, "")
           .trim();
+        const attachmentUrls = message.attachments.map(
+          (attachment) => attachment.url
+        );
 
-        // Empty message
-        if (!contentWithoutMention) {
-          return message.reply("❌ Un message ne peux pas être vide");
+        // Embeds
+        const embeds = message.embeds;
+
+        // Empty Message
+        if (
+          !contentWithoutMention &&
+          attachmentUrls.length === 0 
+        ) {
+          return message.reply("❌ Un message ne peut pas être vide");
         }
 
-        // Send message
-        await message.channel.send(contentWithoutMention);
+        // Message
+        await message.channel.send({
+          content: contentWithoutMention,
+          files: attachmentUrls,
+          embeds: embeds,
+        });
+
         await message.delete();
-        console.log(`[✅PASS] message copy sucseed`);
+        console.log(`[✅PASS] Message copié avec succès`);
       } catch (error) {
         // ERROR Section
         console.error("[❌ERROR]", error);
