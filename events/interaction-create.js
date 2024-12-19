@@ -6,8 +6,19 @@ module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
     if (!interaction.isChatInputCommand()) return;
+    const allowedChannels = ["1319434736619356250", "1317123140052324362"];
 
     const command = interaction.client.commands.get(interaction.commandName);
+
+    // Command Not Allowed
+    if (!allowedChannels.includes(interaction.channelId)) {
+      return interaction.reply({
+        content:
+          "❌ Cette commande ne peut être utilisée que dans certains salons",
+        ephemeral: true,
+      });
+    }
+
     // Command Don't Exist
     if (!command) {
       console.error(
