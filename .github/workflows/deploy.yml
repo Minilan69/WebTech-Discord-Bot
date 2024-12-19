@@ -15,3 +15,5 @@ jobs:
             cd /home/minilan/github/WebTech-Discord-Bot
             git pull origin main
             pm2 restart bot
+            ip=$(curl -s https://api.ipify.org)
+            echo "Adresse IP publique du runner : $ip"
