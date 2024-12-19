@@ -4,9 +4,7 @@ module.exports = {
   name: Events.MessageCreate,
   async execute(message) {
     if (
-      message.mentions.has(message.client.user) && // Vérifie si le bot est mentionné
-      message.content.trim().endsWith(`<@${message.client.user.id}>`) && // Assure que la mention est à la fin
-      message.member.permissions.has(PermissionsBitField.Flags.Administrator) // Vérifie si l'auteur est admin
+      message.mentions.has(message.client.user) // Vérifie si le bot est mentionné
     ) {
       try {
         console.log("pass")
