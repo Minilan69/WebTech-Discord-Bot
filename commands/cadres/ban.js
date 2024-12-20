@@ -1,5 +1,5 @@
 // Imports
-const { SlashCommandBuilder, PermissionsBitField } = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 
 // Command's Attributes
 module.exports = {
