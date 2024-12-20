@@ -15,14 +15,15 @@ module.exports = {
 
   // Execution
   async execute(interaction) {
+    await interaction.deferReply();
     const amount = interaction.options.getInteger("nombre");
     if (amount < 1 || amount > 100) {
-      return interaction.reply(
+      return interaction.editReply(
         "❌ Vous devez spécifier un nombre entre 1 et 100"
       );
     }
     await interaction.channel.bulkDelete(amount, true);
-    await interaction.reply({
+    await interaction.editReply({
       content: `✅ ${amount} messages ont été supprimés`,
       ephemeral: true,
     });
