@@ -25,12 +25,6 @@ async function getCommands() {
           PermissionsBitField.Flags.Administrator.toString();
       }
 
-      // Cadre's Commands
-      if (folder === "cadres") {
-        command.data.default_member_permissions = 
-          PermissionsBitField.Flags.KickMembers.toString();
-      }
-
       // Have All Property
       if ("data" in command && "execute" in command) {
         commands.push(command.data.toJSON());
