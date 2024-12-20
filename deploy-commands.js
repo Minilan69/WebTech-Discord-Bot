@@ -1,5 +1,5 @@
 // Imports
-const { REST, Routes } = require("discord.js");
+const { Routes } = require("discord.js");
 const { clientId, guildId, token } = require("./config.json");
 const fs = require("fs");
 const path = require("path");
@@ -22,6 +22,11 @@ async function getCommands() {
       // Admin's Commands
       if (folder === "admins") {
         command.data.default_member_permissions = "8";
+      }
+
+      // Cadre's Commands
+      if (folder === "cadres") {
+        command.data.default_member_permissions = "2";
       }
 
       // Have All Property

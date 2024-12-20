@@ -15,17 +15,8 @@ module.exports = {
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
-    const caller = interaction.member;
     const user = interaction.options.getUser("member");
     const member = await interaction.guild.members.fetch(user.id);
-
-    // Verify if the caller has the permission to kick members
-    if (!caller.roles.cache.has("1315425516853133404")) {
-      return interaction.reply({
-        content: "❌ Tu n'as pas la permission de kick des membres",
-        ephemeral: true,
-      });
-    }
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
