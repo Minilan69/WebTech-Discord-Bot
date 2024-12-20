@@ -8,14 +8,14 @@ module.exports = {
     .setDescription("Permet de kick un membre")
     .addUserOption((option) =>
       option
-        .setName("member")
+        .setName("membre")
         .setDescription("Le membre à kick")
         .setRequired(true)
     ),
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
-    const user = interaction.options.getUser("member");
+    const user = interaction.options.getUser("membre");
     const member = await interaction.guild.members.fetch(user.id);
 
     // Verify is not an admin

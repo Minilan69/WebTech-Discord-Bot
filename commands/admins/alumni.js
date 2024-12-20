@@ -8,14 +8,14 @@ module.exports = {
     .setDescription("Permet d'ajouter un alumni webtech")
     .addUserOption((option) =>
       option
-        .setName("student")
+        .setName("étudiant")
         .setDescription("L'élève à ajouter")
         .setRequired(true)
     ),
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
-    const user = interaction.options.getUser("student");
+    const user = interaction.options.getUser("étudiant");
 
     const member = await interaction.guild.members.fetch(user.id);
 
