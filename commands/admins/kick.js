@@ -1,5 +1,5 @@
 // Imports
-const { SlashCommandBuilder, PermissionsBitField } = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 
 // Command's Attributes
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
       return interaction.reply({
-        content: "❌ Vous ne pouvez pas kick un administrateur",
+        content: "❌ Vous ne pouvez pas kick un admin",
         ephemeral: true,
       });
     }
@@ -36,7 +36,7 @@ module.exports = {
 
     // Kick User
     try {
-      interaction.guild.members.kick(user);
+      member.kick();
       await interaction.editReply(`✅ <@${user.id}> a été kick`);
     } catch (error) {
       console.error("[❌ERROR]", error);
