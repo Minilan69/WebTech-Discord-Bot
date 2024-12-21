@@ -8,6 +8,7 @@ module.exports = {
     .setDescription("Permet d'ajouter une année à tout les étudiants webtech"),
   // Execution
   async execute(interaction) {
+    await interaction.deferReply();
     const failedMembers = [];
     try {
 
@@ -37,11 +38,11 @@ module.exports = {
       }
 
       if (failedMembers.length === 0) {
-        await interaction.reply({
+        await interaction.editReply({
           content: `✅ **L'année supplémentaire a bien été ajoutée à tous les étudiants**`,
         });
       } else {
-        await interaction.reply({
+        await interaction.editReply({
           content: `❗ **L'année supplémentaire a été ajoutée à tout les étudiants sauf :**\n       ${failedMembers.join(
             "\n"
           )}\n`,
@@ -49,7 +50,7 @@ module.exports = {
       }
     } catch (error) {
       console.error("[❌ERROR]", error);
-      await interaction.reply({
+      await interaction.editReply({
         content: "❌ Une erreur est survenue en traitant la demande.",
         ephemeral: true,
       });
