@@ -11,12 +11,19 @@ module.exports = {
         .setName("membre")
         .setDescription("Le membre à ban")
         .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("raison")
+        .setDescription("La raison du ban")
+        .setRequired(true)
     ),
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
     const user = interaction.options.getUser("membre");
     const member = await interaction.guild.members.fetch(user.id);
+    const reason = interaction.options.getString("raison");
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
@@ -36,7 +43,7 @@ module.exports = {
 
     // Ban User
     try {
-      member.ban();
+      member.ban(reason);
       await interaction.editReply(`✅ <@${user.id}> a été ban`);
     } catch (error) {
       console.error("[❌ERROR]", error);

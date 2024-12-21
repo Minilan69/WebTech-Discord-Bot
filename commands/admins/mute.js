@@ -19,6 +19,12 @@ module.exports = {
         .setRequired(true)
         .setMinValue(1)
         .setMaxValue(40320)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("raison")
+        .setDescription("La raison du mute")
+        .setRequired(true)
     ),
   // Execution
   async execute(interaction) {
@@ -26,6 +32,7 @@ module.exports = {
     const user = interaction.options.getUser("membre");
     const member = await interaction.guild.members.fetch(user.id);
     const time = interaction.options.getNumber("durée");
+    const reason = interaction.options.getString("raison");
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
@@ -45,7 +52,7 @@ module.exports = {
 
     // Kick User
     try {
-      member.timeout(time * 60000);
+      member.timeout(time * 60000, reason);
       await interaction.editReply(
         `✅ <@${user.id}> a été mute pour ${time} minutes`
       );
