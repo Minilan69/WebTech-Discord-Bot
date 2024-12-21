@@ -35,7 +35,7 @@ module.exports = {
 
     // Verify if the user is not the bot
     if (member.user.id === interaction.client.user.id) {
-      return interaction.reply("❌Vous ne pouvez pas ban le bot");
+      return interaction.editReply("❌Vous ne pouvez pas ban le bot");
     }
 
     // Verify if the user is not the caller
