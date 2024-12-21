@@ -27,15 +27,20 @@ module.exports = {
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ Vous ne pouvez pas kick un admin",
         ephemeral: true,
       });
     }
 
+    // Verify if the user is not the bot
+    if (member.user.id === interaction.client.user.id) {
+      return interaction.reply("❌Vous ne pouvez pas kick le bot");
+    }
+
     // Verify if the user is not the caller
     if (user.id === interaction.user.id) {
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ Tu ne peux pas te kick toi-même",
         ephemeral: true,
       });
@@ -44,7 +49,8 @@ module.exports = {
     // Kick User
     try {
       member.kick(reason);
-      await interaction.editReply(`✅ <@${user.id}> a été kick`);
+      await interaction.editReply(`✅ <@${user.id}> a été kick\n
+        Raison: ${reason}`);
     } catch (error) {
       console.error("[❌ERROR]", error);
       await interaction.editReply("❌ Impossible de kick le membre");

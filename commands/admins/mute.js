@@ -36,15 +36,20 @@ module.exports = {
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ Vous ne pouvez pas mute un admin",
         ephemeral: true,
       });
     }
 
+    // Verify if the user is not the bot
+    if (member.user.id === interaction.client.user.id) {
+      return interaction.reply("❌Vous ne pouvez pas mute le bot");
+    }
+
     // Verify if the user is not the caller
     if (user.id === interaction.user.id) {
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ Tu ne peux pas te mute toi-même",
         ephemeral: true,
       });
@@ -54,7 +59,8 @@ module.exports = {
     try {
       member.timeout(time * 60000, reason);
       await interaction.editReply(
-        `✅ <@${user.id}> a été mute pour ${time} minutes`
+        `✅ <@${user.id}> a été mute pour ${time} minutes\n
+        Raison: ${reason}`
       );
     } catch (error) {
       console.error("[❌ERROR]", error);

@@ -27,15 +27,20 @@ module.exports = {
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ Vous ne pouvez pas ban un admin",
         ephemeral: true,
       });
     }
 
+    // Verify if the user is not the bot
+    if (member.user.id === interaction.client.user.id) {
+      return interaction.reply("❌Vous ne pouvez pas ban le bot");
+    }
+
     // Verify if the user is not the caller
     if (user.id === interaction.user.id) {
-      return interaction.reply({
+      return interaction.editReply({
         content: "❌ Tu ne peux pas te ban toi-même",
         ephemeral: true,
       });
@@ -44,7 +49,8 @@ module.exports = {
     // Ban User
     try {
       member.ban(reason);
-      await interaction.editReply(`✅ <@${user.id}> a été ban`);
+      await interaction.editReply(`✅ <@${user.id}> a été ban\n
+        Raison: ${reason}`);
     } catch (error) {
       console.error("[❌ERROR]", error);
       await interaction.editReply("❌ Impossible de ban le membre");
