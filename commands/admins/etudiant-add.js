@@ -1,7 +1,7 @@
 // Imports
 const { SlashCommandBuilder } = require("discord.js");
 
-// Command's Attributes
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("etudiant-ajouter")
@@ -24,19 +24,19 @@ module.exports = {
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
+
+    // Variables
     const user = interaction.options.getUser("étudiant");
     const annee = interaction.options.getNumber("année");
 
     const member = await interaction.guild.members.fetch(user.id);
+    let name =
+      member.nickname ||
+      user.globalName ||
+      user.username ||
+      "Pseudo Non Récupérable";
 
-    // Add User
     try {
-      let name =
-        member.nickname ||
-        user.globalName ||
-        user.username ||
-        "Pseudo Non Récupérable";
-
       // Verified If Already Have • N* In Nickname
       const anneePattern = / • N\d+$/;
       if (anneePattern.test(name)) {
@@ -49,6 +49,7 @@ module.exports = {
       await member.setNickname(`${name} • N${annee}`);
       await interaction.editReply(`✅ <@${user.id}> a été ajouté`);
     } catch (error) {
+      // Error
       console.error("[❌ERROR]", error);
       await interaction.editReply(
         "❌ Impossible de changer le pseudo ou d'ajouter le rôle"

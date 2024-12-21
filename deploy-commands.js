@@ -54,6 +54,7 @@ async function deployCommands() {
 
     console.log(`[✅PASS] ${data.length} commands created`);
   } catch (error) {
+    // Error
     console.error("[❌ERROR]", error);
   }
 }

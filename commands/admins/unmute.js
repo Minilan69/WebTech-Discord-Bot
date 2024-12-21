@@ -1,7 +1,7 @@
 // Imports
 const { SlashCommandBuilder } = require("discord.js");
 
-// Command's Attributes
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("unmute")
@@ -21,10 +21,18 @@ module.exports = {
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
+
+    // Variables
     const user = interaction.options.getUser("membre");
+    const reason = interaction.options.getString("raison");
+    
     const member = await interaction.guild.members.fetch(user.id);
     const time = member.communicationDisabledUntilTimestamp;
-    const reason = interaction.options.getString("raison");
+    const name =
+      interaction.member.nickname ||
+      interaction.member.user.globalName ||
+      interaction.member.user.username ||
+      "Pseudo Non Récupérable";
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
@@ -36,7 +44,7 @@ module.exports = {
 
     // Verify if the user is not the bot
     if (member.user.id === interaction.client.user.id) {
-      return interaction.editReply("❌Vous ne pouvez pas unmute le bot");
+      return interaction.editReply("❌ Vous ne pouvez pas unmute le bot");
     }
 
     // Verify if the user is not the caller
@@ -57,12 +65,15 @@ module.exports = {
 
     // Kick User
     try {
-      member.timeout(null, reason);
+      member.timeout(null, `Par ${name} : ${reason}`);
       await interaction.editReply(
-        `✅ <@${user.id}> a été unmute avec ${time / 60000} minutes restantes\n
+        `✅ <@${user.id}> a été unmute avec ${Math.ceil(
+          time / 60000
+        )} minutes restantes
         Raison: ${reason}`
       );
     } catch (error) {
+      // Error
       console.error("[❌ERROR]", error);
       await interaction.editReply("❌ Impossible de unmute le membre");
     }

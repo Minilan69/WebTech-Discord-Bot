@@ -6,8 +6,9 @@ module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
     if (!interaction.isChatInputCommand()) return;
-    const allowedChannels = ["1319434736619356250", "1317123140052324362"];
 
+    // Variables
+    const allowedChannels = ["1319434736619356250", "1317123140052324362"];
     const command = interaction.client.commands.get(interaction.commandName);
 
     // Command Not Allowed
@@ -28,10 +29,11 @@ module.exports = {
     }
 
     try {
+      // Command Execution
       await command.execute(interaction);
       console.log(`[✅PASS] ${interaction.commandName}.js sucseed`);
     } catch (error) {
-      // ERROR Section
+      // Error
       console.error(error);
       if (interaction.replied || interaction.deferred) {
         await interaction.followUp({

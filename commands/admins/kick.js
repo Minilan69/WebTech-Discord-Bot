@@ -1,7 +1,7 @@
 // Imports
 const { SlashCommandBuilder } = require("discord.js");
 
-// Command's Attributes
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("kick")
@@ -18,12 +18,21 @@ module.exports = {
         .setDescription("La raison du kick")
         .setRequired(true)
     ),
+
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
+    
+    // Variables
     const user = interaction.options.getUser("membre");
-    const member = await interaction.guild.members.fetch(user.id);
     const reason = interaction.options.getString("raison");
+
+    const member = await interaction.guild.members.fetch(user.id);
+    const name =
+      interaction.member.nickname ||
+      interaction.member.user.globalName ||
+      interaction.member.user.username ||
+      "Pseudo Non Récupérable";
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
@@ -35,7 +44,7 @@ module.exports = {
 
     // Verify if the user is not the bot
     if (member.user.id === interaction.client.user.id) {
-      return interaction.editReply("❌Vous ne pouvez pas kick le bot");
+      return interaction.editReply("❌ Vous ne pouvez pas kick le bot");
     }
 
     // Verify if the user is not the caller
@@ -48,10 +57,11 @@ module.exports = {
 
     // Kick User
     try {
-      member.kick(reason);
-      await interaction.editReply(`✅ <@${user.id}> a été kick\n
+      member.kick(`Par ${name} : ${reason}`);
+      await interaction.editReply(`✅ <@${user.id}> a été kick
         Raison: ${reason}`);
     } catch (error) {
+      // Error
       console.error("[❌ERROR]", error);
       await interaction.editReply("❌ Impossible de kick le membre");
     }

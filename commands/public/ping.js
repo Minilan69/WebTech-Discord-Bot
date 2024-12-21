@@ -11,16 +11,15 @@ module.exports = {
     ),
   async execute(interaction) {
     await interaction.deferReply();
+    const sent = await interaction.followUp({
+      content: "Calcul en cours...",
+      fetchReply: true,
+    });
 
     try {
-      const sent = await interaction.followUp({
-        content: "Calcul en cours...",
-        fetchReply: true,
-      });
-
       // Collect Data
       const botLatency = sent.createdTimestamp - interaction.createdTimestamp;
-      let apiLatency = Math.round(interaction.client.ws.ping);
+      let apiLatency = Math.ceil(interaction.client.ws.ping);
       if (apiLatency == -1) {
         apiLatency = 0;
       }
@@ -33,6 +32,7 @@ module.exports = {
         `
       );
     } catch (error) {
+      // Error
       console.error("[❌ERROR]", error);
       await interaction.editReply("❌ Impossible de ping");
     }

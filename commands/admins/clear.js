@@ -1,7 +1,7 @@
 // Imports
 const { SlashCommandBuilder } = require("discord.js");
 
-// Command's Attributes
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("clear")
@@ -18,7 +18,11 @@ module.exports = {
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
+
+    // Variables
     const amount = interaction.options.getInteger("nombre");
+    
+    // Delete the messages
     await interaction.channel.bulkDelete(amount, true);
     await interaction.editReply({
       content: `✅ ${amount} messages ont été supprimés`,

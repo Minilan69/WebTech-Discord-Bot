@@ -1,7 +1,7 @@
 // Imports
 const { SlashCommandBuilder } = require("discord.js");
 
-// Command's Attributes
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("mute")
@@ -29,10 +29,19 @@ module.exports = {
   // Execution
   async execute(interaction) {
     await interaction.deferReply();
+
+    // Variables
     const user = interaction.options.getUser("membre");
-    const member = await interaction.guild.members.fetch(user.id);
     const time = interaction.options.getNumber("durée");
     const reason = interaction.options.getString("raison");
+
+    const member = await interaction.guild.members.fetch(user.id);
+    const mute = member.communicationDisabledUntilTimestamp;
+    const name =
+      interaction.member.nickname ||
+      interaction.member.user.globalName ||
+      interaction.member.user.username ||
+      "Pseudo Non Récupérable";
 
     // Verify is not an admin
     if (member.roles.cache.has("1315425516853133404")) {
@@ -44,7 +53,7 @@ module.exports = {
 
     // Verify if the user is not the bot
     if (member.user.id === interaction.client.user.id) {
-      return interaction.editReply("❌Vous ne pouvez pas mute le bot");
+      return interaction.editReply("❌ Vous ne pouvez pas mute le bot");
     }
 
     // Verify if the user is not the caller
@@ -55,14 +64,23 @@ module.exports = {
       });
     }
 
+    // Verify if the user is muted
+    if (mute) {
+      return interaction.editReply({
+        content: "❌ Ce membre est déja mute",
+        ephemeral: true,
+      });
+    }
+
     // Kick User
     try {
-      member.timeout(time * 60000, reason);
+      member.timeout(time * 60000, `Par ${name} : ${reason}`);
       await interaction.editReply(
-        `✅ <@${user.id}> a été mute pour ${time} minutes\n
+        `✅ <@${user.id}> a été mute pour ${time} minutes
         Raison: ${reason}`
       );
     } catch (error) {
+      // Error
       console.error("[❌ERROR]", error);
       await interaction.editReply("❌ Impossible de mute le membre");
     }

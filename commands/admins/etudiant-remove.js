@@ -1,7 +1,7 @@
 // Imports
 const { SlashCommandBuilder } = require("discord.js");
 
-// Command's Attributes
+// Command
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("etudiant-retirer")
@@ -16,18 +16,18 @@ module.exports = {
   // Execute
   async execute(interaction) {
     await interaction.deferReply();
+    
+    // Variables
     const user = interaction.options.getUser("étudiant");
 
     const member = await interaction.guild.members.fetch(user.id);
+    let name =
+      member.nickname ||
+      user.globalName ||
+      user.username ||
+      "Pseudo Non Récupérable";
 
-    // Remove User
     try {
-      let name =
-        member.nickname ||
-        user.globalName ||
-        user.username ||
-        "Pseudo Non Récupérable";
-
       // Verified If Already Have • N* In Nickname
       const anneePattern = / • N\d+$/;
       if (anneePattern.test(name)) {
@@ -40,6 +40,7 @@ module.exports = {
       await member.setNickname(`${name}`);
       await interaction.editReply(`✅ <@${user.id}> a été retiré`);
     } catch (error) {
+      // Error
       console.error("[❌ERROR]", error);
       await interaction.editReply(
         "❌ Impossible de changer le pseudo ou de retirer le rôle"
